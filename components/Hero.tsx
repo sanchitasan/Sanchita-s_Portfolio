@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
+import { LuMenu } from "react-icons/lu";
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -9,9 +9,9 @@ const Hero = () => {
       <nav className="mt-10">
         <div className="sm:block md:hidden">
           <button
-            className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+            className="flex items-center px-2 py-1 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
             onClick={() => setIsOpen(!isOpen)}
-          ></button>
+          ><LuMenu /></button>
           {isOpen && (
             <ul className=" mt-10 md:hidden grid grid-rows-4 pt-10 rounded-xl bg-black-300 text-center">
               <li className=" mb-10">
@@ -50,7 +50,7 @@ const Hero = () => {
           )}
         </div>
 
-        <ul className="hidden md:grid grid-cols-4 justify-center text-center rounded-xl p-5 bg-black-300">
+        <ul className=" hidden md:grid grid-cols-4 justify-center text-center rounded-xl p-5 bg-black-300">
           <li>
             <a
               className="p-4 rounded-2xl hover:text-purple hover:underline font-medium font-serif bg-black-200"
@@ -94,8 +94,8 @@ const Hero = () => {
 
         <figure className="mt-10 rounded-3xl shadow-sm  shadow-purple max-w-sm px-3 md:mx-0 md:my-0 mx-10">
           <img
-            className="py-5 shadow-2xl shadow-black-300 rounded-br-full size-[400px]"
-            src="/Screenshot 2024-08-17 at 5.01.09 PM.png"
+            className="py-5 shadow-2xl shadow-black-300 rounded-xl"
+            src="/about.jpeg"
             alt="Profile"
           />
         </figure>

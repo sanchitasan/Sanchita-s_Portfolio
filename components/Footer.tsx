@@ -1,5 +1,5 @@
 "use client";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 const Footer = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -148,17 +148,17 @@ const Footer = () => {
         <div className="flex items-center justify-center ">
           <ul className="grid grid-cols-3 gap-10 lg:px-16 md:px-16 px-8 py-3 border-2 border-purple rounded-xl bg-black-300">
             <li>
-              <a href="">
+              <a href="https://www.linkedin.com/in/sanchita-priyadarshinee-9912b6282/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3Bo2V0x4UbS3Or4Wi3POe5hA%3D%3D">
                 <img src="linkedin.png" alt="Linkedin" width={45} />
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="https://x.com/123NITR/">
                 <img src="x.png" alt="X" width={45} />
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="https://www.instagram.com/sanchita_priyadarshinee/#">
                 <img src="instagram.png" alt="Instagram" width={45} />
               </a>
             </li>

@@ -6,12 +6,13 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
+ 
 
+  theme: {
+    
+    extend: {
       keyframes: {
         subtleWiggle: {
-
           '20%': { transform: 'translateX(-10px)' },
           '70%': { transform: 'translateX(10px)' },
           '50%': { transform: 'translateY(10px)' },
