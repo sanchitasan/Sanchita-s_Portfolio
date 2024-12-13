@@ -41,7 +41,7 @@ const Footer = () => {
   return (
     <footer className="w-full pt-20 pb-10" id="contact">
       <form onSubmit={handleSubmit} name="submit-to-google-sheet">
-        <h1 className=" lg:mt-10 lg:mb-20 mb-10 text-3xl text-center font-serif font-extrabold md:text-5xl lg:text-6xl">
+        <h1 className=" lg:mt-10 lg:mb-20 mb-10 text-2xl text-center font-serif font-extrabold md:text-5xl lg:text-6xl">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-200 from-pink-200">
             Get in Touch
           </span>
@@ -148,17 +148,17 @@ const Footer = () => {
         <div className="flex items-center justify-center ">
           <ul className="grid grid-cols-3 gap-10 lg:px-16 md:px-16 px-8 py-3 border-2 border-purple rounded-xl bg-black-300">
             <li>
-              <a href="https://www.linkedin.com/in/sanchita-priyadarshinee-9912b6282/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3Bo2V0x4UbS3Or4Wi3POe5hA%3D%3D">
+              <a href="https://www.linkedin.com/in/sanchita-priyadarshinee-9912b6282/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3Bo2V0x4UbS3Or4Wi3POe5hA%3D%3D" target="_blank">
                 <img src="linkedin.png" alt="Linkedin" width={45} />
               </a>
             </li>
             <li>
-              <a href="https://x.com/123NITR/">
+              <a href="https://x.com/123NITR/" target="_blank">
                 <img src="x.png" alt="X" width={45} />
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/sanchita_priyadarshinee/#">
+              <a href="https://www.instagram.com/sanchita_priyadarshinee/#" target="_blank" >
                 <img src="instagram.png" alt="Instagram" width={45} />
               </a>
             </li>

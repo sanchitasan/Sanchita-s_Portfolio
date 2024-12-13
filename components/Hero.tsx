@@ -9,7 +9,7 @@ const Hero = () => {
       <nav className="mt-10">
         <div className="sm:block md:hidden">
           <button
-            className="flex items-center px-2 py-1 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+            className="flex items-center -mt-5 ml-5 px-2 py-1 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
             onClick={() => setIsOpen(!isOpen)}
           ><LuMenu /></button>
           {isOpen && (
@@ -86,15 +86,15 @@ const Hero = () => {
         </ul>
       </nav>
       <div className="flex flex-col items-center justify-center">
-        <h1 className="lg:my-16 md:my-16 my-8 text-center text-3xl font-serif font-extrabold md:text-5xl lg:text-6xl">
-          <span className="text-transparent shadow-lg shadow-purple bg-clip-text bg-gradient-to-r to-sky-300 from-green-400 inline-block animate-subtleWiggle">
+        <h1 className="lg:my-16 md:my-16 my-8 text-center text-4xl font-serif font-extrabold md:text-5xl lg:text-6xl">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-300 from-green-400 inline-block text-lg md:text-4xl">
             A Full-Stack Web Developer
           </span>
         </h1>
 
-        <figure className="mt-10 rounded-3xl shadow-sm  shadow-purple max-w-sm px-3 md:mx-0 md:my-0 mx-10">
+        <figure className="md:mt-10 shadow-sm  shadow-purple max-w-sm px-3 md:mx-0 md:my-0 mx-16">
           <img
-            className="py-5 shadow-2xl shadow-black-300 rounded-xl"
+            className="py-5 shadow-2xl shadow-black-300"
             src="/about.jpeg"
             alt="Profile"
           />

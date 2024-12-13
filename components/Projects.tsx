@@ -4,7 +4,7 @@ const Projects = () => {
   return (
     <div id="projects">
       <div className="  text-gray-400 font-serif">
-        <h1 className=" mt-20 lg:mb-20 mb-10 text-3xl text-center font-serif font-extrabold md:text-5xl lg:text-6xl">
+        <h1 className=" md:mt-20 mt-9 lg:mb-20 mb-10 text-2xl text-center font-serif font-extrabold md:text-4xl lg:text-6xl">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-200 from-pink-200">
             My Projects
           </span>
@@ -12,10 +12,10 @@ const Projects = () => {
         <ul className="lg:mx-0 md:mx-0 mx-5 grid gap-10 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
           <li>
             <a
-              href="https://sanchita-nitr.github.io/Flappy-Bird/"
+              href="https://flappy-bird-six-iota.vercel.app"
               target="_blank"
             >
-              <img src="/FlappyBirdGame.png" alt="Game" width={500} />{" "}
+              <img src="/Flappy Bird.png" alt="Game" width={600} />{" "}
             </a>{" "}
             <p className=" text-white text-lg ">Flappy Bird Game</p>
           </li>
@@ -24,7 +24,7 @@ const Projects = () => {
               href="https://sanchita-nitr.github.io/Dribbble_Clone/"
               target="_blank"
             >
-              <img src="/Dribbble.png" alt="Dribbble Clone" width={500} />{" "}
+              <img src="/Dribbble.png" alt="Dribbble Clone" width={600} />{" "}
             </a>{" "}
             <p className=" text-white text-lg ">Dribbble</p>
           </li>
@@ -40,13 +40,13 @@ const Projects = () => {
           </li>
           <li>
             <a
-              href="https://sanchita-nitr.github.io/React-Clone-Project/"
+              href="https://credit-card-fraud-detection-model.streamlit.app"
               target="_blank"
             >
-              <img src="/ReactClone.png" alt="React Clone" width={500} />{" "}
+              <img src="/Credit Card.png" alt="Fraud Detection" width={500} />{" "}
             </a>
 
-            <p className=" text-white text-lg ">React Clone(view for Laptop)</p>
+            <p className=" text-white text-lg ">Credit Card Fraud Detection Model</p>
           </li>
           <li>
             <a
