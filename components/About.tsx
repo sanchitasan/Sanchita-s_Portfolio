@@ -15,9 +15,9 @@ const About = () => {
         >
           <h1>
             {" "}
-            I&apos;m{" "}
+            I am{" "}
            <b className="text-purple">Sanchita Priyadarshinee</b> 
-            , a student at NIT Rourkela pursuing a B.Tech in <b className=" text-purple ">Electronics and Communication Engineering </b>with a major in front-end web development. With expertise in <b className=" text-purple"> HTML, CSS, JavaScript, React.js, and Tailwind CSS</b>, my area of expertise is developing user-friendly interfaces and incorporating cutting-edge technologies into projects. With my background in <b className=" text-purple">Python</b> and   <b className=" text-purple"> Scikit-learn</b>, I also have an interest in <b className=" text-purple">AI and machine learning</b>. I am well-versed in <b className="text-purple">MySQL and MongoDB</b>  database administration. Distinguished by my <b className=" text-purple">leadership, strategic planning</b>, and   <b>organizational abilities</b>, I guarantee effective project implementation while upholding a strict time and resource management regimen. I'm a badminton enthusiast who values cooperation and physical conditioning.
+            , a student at NIT Rourkela pursuing a B.Tech in <b className=" text-purple ">Electronics and Communication Engineering </b>with a major in front-end web development. With expertise in <b className=" text-purple"> HTML, CSS, JavaScript, React.js, and Tailwind CSS</b>, my area of expertise is developing user-friendly interfaces and incorporating cutting-edge technologies into projects. With my background in <b className=" text-purple">Python</b> and   <b className=" text-purple"> Scikit-learn</b>, I also have an interest in <b className=" text-purple">AI and machine learning</b>. I am well-versed in <b className="text-purple">MySQL and MongoDB</b>  database administration. Distinguished by my <b className=" text-purple">leadership, strategic planning</b>, and   <b>organizational abilities</b>, I guarantee effective project implementation while upholding a strict time and resource management regimen. I am a badminton enthusiast who values cooperation and physical conditioning.
           </h1>
         </div>
       </div>
