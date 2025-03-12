@@ -1,105 +1,69 @@
 "use client";
-import React, { useState } from "react";
-import { LuMenu } from "react-icons/lu";
-const Hero = () => {
-  const [isOpen, setIsOpen] = useState(false);
+import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import cusror from "../assets/star.jpeg";
 
+const Hero = () => {
   return (
-    <div id="home">
-      <nav className="mt-10">
-        <div className="sm:block md:hidden">
-          <button
-            className="flex items-center -mt-5 ml-5 px-2 py-1 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
-            onClick={() => setIsOpen(!isOpen)}
-          ><LuMenu /></button>
-          {isOpen && (
-            <ul className=" mt-10 md:hidden grid grid-rows-4 pt-10 rounded-xl bg-black-300 text-center">
-              <li className=" mb-10">
-                <a
-                  className="p-4 rounded-2xl hover:text-purple hover:underline font-medium font-serif bg-black-200 "
-                  href="#home"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  className="p-4 rounded-2xl hover:text-purple hover:underline font-medium font-serif bg-black-200"
-                  href="#about"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  className="p-4 rounded-2xl hover:text-purple hover:underline font-medium font-serif bg-black-200"
-                  href="#projects"
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  className="p-4 rounded-2xl hover:text-purple hover:underline font-medium font-serif bg-black-200"
-                  href="#contact"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          )}
+    // <div className="home">
+
+    //   <div className="flex flex-col items-center justify-center overflow-clip bg-[linear-gradient(to_bottom,#000, #2B1942_35%, #8F5C55_60%, #DBAF6E_80%)">
+    //     <h1 className="lg:my-16 md:my-16 my-8 text-center text-4xl  font-extrabold md:text-5xl lg:text-6xl">
+    //       <div className="font-serif">Hi, I'm <br />Sanchita Priyadarshinee</div>
+    //       <span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-300 from-green-400 inline-block text-lg md:text-xl text-center">
+    //         I am a Full-Stack Web Developer focused on creating user-friendly interfaces and incorporating cutting-edge technologies into projects.
+    //       </span>
+    //     </h1>
+
+    //     <figure className="md:mt-10 shadow-sm  shadow-purple max-w-sm px-3 md:mx-0 md:my-0 mx-16">
+    // <img
+    //   className="py-5 shadow-2xl shadow-black-300"
+    //   src="/about.jpeg"
+    //   alt="Profile"
+    // />
+    //     </figure>
+    //   </div>
+    // </div>
+    <div id="home"
+      className="relative overflow-clip pt-32"
+      style={{
+        background:
+          "linear-gradient(to bottom, #000, #1B3A5B 25%, #2A6A8D 50%, #4DA8E0 70%, #5A4FBF 90%)",
+      }}
+    >
+      <div className="absolute rounded-[50%] w-[3000px] h-[1300px] top-[550px] left-[50%] -translate-x-1/2 bg-[radial-gradient(closest-side,#000_40%,#0A1D2D)]"></div>
+      <div className="relative">
+        <div className="text-8xl font-bold text-center font-serif">
+          <h1 className=" text-cyan-200">Hi, I am</h1>
+          <h1 className="text-7xl pt-5">Sanchita Priyadarshinee</h1>
+        </div>
+        <motion.div className="absolute top-[90px]" drag>
+          <img
+            className=" "
+            src="/ai-generated-gold-star-on-transparent-background-png.webp"
+            alt="Profile"
+            height="200"
+            width="300"
+          />
+        </motion.div>
+
+        <div className=" text-center text-xl pt-5 max-w-[700px] font-montserrat mx-auto">
+          I am a Full-Stack Web Developer focused on creating user-friendly
+          interfaces and incorporating cutting-edge technologies into projects.
         </div>
 
-        <ul className=" hidden md:grid grid-cols-4 justify-center text-center rounded-xl p-5 bg-black-300">
-          <li>
-            <a
-              className="p-4 rounded-2xl hover:text-purple hover:underline font-medium font-serif bg-black-200"
-              href="#home"
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              className="p-4 rounded-2xl hover:text-purple hover:underline font-medium font-serif bg-black-200"
-              href="#about"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              className="p-4 rounded-2xl hover:text-purple hover:underline font-medium font-serif bg-black-200"
-              href="#projects"
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              className="p-4 rounded-2xl hover:text-purple hover:underline font-medium font-serif bg-black-200"
-              href="#contact"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="lg:my-16 md:my-16 my-8 text-center text-4xl font-serif font-extrabold md:text-5xl lg:text-6xl">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-300 from-green-400 inline-block text-lg md:text-4xl">
-            A Full-Stack Web Developer
-          </span>
-        </h1>
-
-        <figure className="md:mt-10 shadow-sm  shadow-purple max-w-sm px-3 md:mx-0 md:my-0 mx-16">
+        <div className="flex justify-center items-center ">
           <img
-            className="py-5 shadow-2xl shadow-black-300"
-            src="/about.jpeg"
+            className=" "
+            src="/pp.png"
             alt="Profile"
+            height="200"
+            width="300"
           />
-        </figure>
+        </div>
       </div>
+
     </div>
   );
 };
