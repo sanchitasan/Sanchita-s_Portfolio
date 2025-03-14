@@ -4,7 +4,15 @@ import { LuMenu, LuX } from "react-icons/lu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+        {/* <motion.div className="absolute mt-[200px] ml-20" drag>
+          <img
+            className=" "
+            src="/Pasted Graphic.png"
+            alt="Profile"
+            height="200"
+            width="200"
+          />
+        </motion.div> */}
   return (
     <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-gradient-to-r from-black via-[#132b44] to-[#2A6A8D] shadow-lg">
       {/* Desktop Navbar */}

@@ -1,69 +1,48 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import cusror from "../assets/star.jpeg";
 
 const Hero = () => {
   return (
-    // <div className="home">
-
-    //   <div className="flex flex-col items-center justify-center overflow-clip bg-[linear-gradient(to_bottom,#000, #2B1942_35%, #8F5C55_60%, #DBAF6E_80%)">
-    //     <h1 className="lg:my-16 md:my-16 my-8 text-center text-4xl  font-extrabold md:text-5xl lg:text-6xl">
-    //       <div className="font-serif">Hi, I'm <br />Sanchita Priyadarshinee</div>
-    //       <span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-300 from-green-400 inline-block text-lg md:text-xl text-center">
-    //         I am a Full-Stack Web Developer focused on creating user-friendly interfaces and incorporating cutting-edge technologies into projects.
-    //       </span>
-    //     </h1>
-
-    //     <figure className="md:mt-10 shadow-sm  shadow-purple max-w-sm px-3 md:mx-0 md:my-0 mx-16">
-    // <img
-    //   className="py-5 shadow-2xl shadow-black-300"
-    //   src="/about.jpeg"
-    //   alt="Profile"
-    // />
-    //     </figure>
-    //   </div>
-    // </div>
-    <div id="home"
-      className="relative overflow-clip pt-32"
+    <div
+      id="home"
+      className="relative overflow-clip md:pt-40 pt-28"
       style={{
         background:
           "linear-gradient(to bottom, #000, #1B3A5B 25%, #2A6A8D 50%, #4DA8E0 70%, #5A4FBF 90%)",
       }}
     >
-      <div className="absolute rounded-[50%] w-[3000px] h-[1300px] top-[550px] left-[50%] -translate-x-1/2 bg-[radial-gradient(closest-side,#000_40%,#0A1D2D)]"></div>
+      <div className="absolute rounded-[50%] lg:w-[3000px] md:w-[2000px] w-[1300px] h-[1300px] lg:top-[700px] md:top-[650px] top-[450px] left-[50%] -translate-x-1/2 bg-[radial-gradient(closest-side,#000_40%,#000)]"></div>
+      
       <div className="relative">
-        <div className="text-8xl font-bold text-center font-serif">
-          <h1 className=" text-cyan-200">Hi, I am</h1>
-          <h1 className="text-7xl pt-5">Sanchita Priyadarshinee</h1>
+        <div className="font-bold text-center font-serif">
+          <h1 className="text-[#AEEEEE] md:text-8xl text-5xl">Hi, I am</h1>
+          <h1 className="lg:text-7xl md:text-6xl text-3xl pt-5 white">
+            Sanchita Priyadarshinee
+          </h1>
         </div>
-        <motion.div className="absolute top-[90px]" drag>
-          <img
-            className=" "
-            src="/ai-generated-gold-star-on-transparent-background-png.webp"
+
+        <div className="text-center md:text-xl pt-10 max-w-[1300px] font-montserrat mx-auto text-[#D0E1F9]">
+          I am a Full-Stack Web Developer passionate about building user-friendly interfaces and integrating advanced technologies. With expertise in React.js, Next.js, and Node.js.
+        </div>
+
+        {/* Profile Picture with Scroll Animation */}
+        <motion.div
+          className="flex justify-center items-center md:mt-10"
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.2 }} // Animates every time it comes into view
+        >
+          <motion.img
+            className="flex justify-center lg:w-[400px] md:w-[300px] sm:w-[250px] w-[200px]"
+            src="/pixelcut-export.png"
             alt="Profile"
-            height="200"
-            width="300"
+            whileHover={{ scale: 1.05}} // Small hover effect for interactivity
+            transition={{ duration: 0.3 }}
           />
         </motion.div>
-
-        <div className=" text-center text-xl pt-5 max-w-[700px] font-montserrat mx-auto">
-          I am a Full-Stack Web Developer focused on creating user-friendly
-          interfaces and incorporating cutting-edge technologies into projects.
-        </div>
-
-        <div className="flex justify-center items-center ">
-          <img
-            className=" "
-            src="/pp.png"
-            alt="Profile"
-            height="200"
-            width="300"
-          />
-        </div>
       </div>
-
     </div>
   );
 };

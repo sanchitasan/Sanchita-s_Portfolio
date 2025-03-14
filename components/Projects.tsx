@@ -1,29 +1,31 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Flappy Bird Game",
-    description: "A browser-based clone of the classic Flappy Bird game, built using HTML, CSS, and JavaScript with smooth physics-based mechanics.",
-    image: "/Flappy Bird.png",
-    link: "https://flappy-bird-six-iota.vercel.app",
+    title: "Credit Card Fraud Detection",
+    description: "Developed a Credit Card Fraud Detection Model in Python, achieving 94.15% accuracy on training data and 93.90% accuracy on test data. Addressed class imbalance through Undersampling.",
+    image: "/Credit Card.png",
+    link: "https://credit-card-fraud-detection-model.streamlit.app",
   },
   {
-    title: "Dribbble Clone",
-    description: "A frontend replica of Dribbble’s homepage, demonstrating UI/UX design skills using HTML, CSS, and JavaScript.",
-    image: "/Dribbble.png",
-    link: "https://sanchita-nitr.github.io/Dribbble_Clone/",
+    title: "Crypto Currency Converter",
+    description: "Developed a cryptocurrency converter that fetches real-time conversion rates for multiple currencies using the CoinGecko API. Implemented historical price trend visualization with Chart.js to display a 7-day price fluctuation.",
+    image: "/crypto.png",
+    link: "https://crypto-currency-converter-six.vercel.app",
+  },
+  {
+    title: "Code Metrics",
+    description: "Integrated AI/ML capabilities into the Code Metrics Dashboard by developing and deploying machine learning models using Flask APIs, enabling predictions of coding performance and streak trends.",
+    image: "/code.png",
+    link: "https://code-metrics-o6us.vercel.app",
   },
   {
     title: "Weather Forecast",
     description: "A real-time weather forecasting app that fetches live weather data using OpenWeather API, providing temperature, humidity, and weather conditions.",
     image: "/Weather.png",
     link: "https://sanchita-nitr.github.io/Weather-Forecast/",
-  },
-  {
-    title: "Credit Card Fraud Detection",
-    description: "A machine learning model deployed using Streamlit to detect fraudulent transactions based on user data patterns.",
-    image: "/Credit Card.png",
-    link: "https://credit-card-fraud-detection-model.streamlit.app",
   },
   {
     title: "Image Gallery",
@@ -36,36 +38,68 @@ const projects = [
 const Projects = () => {
   return (
     <div
+      id="projects"
       className="text-gray-300 font-serif pb-16"
       style={{
         background: "linear-gradient(to top, #000 10%, #1B3A5B 75%, #2A6A8D)",
       }}
     >
-      <h1 className="mb-20 text-3xl text-center font-extrabold md:text-5xl lg:text-7xl text-cyan-200 drop-shadow-lg">
+      {/* Heading Animation */}
+      <motion.h1
+        className="md:mb-20 mb-5 lg:text-7xl md:text-6xl text-3xl text-center font-extrabold text-cyan-200 drop-shadow-lg"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ amount: 0.5 }} // Triggers when 50% of the heading is visible
+      >
         My Projects
-      </h1>
+      </motion.h1>
 
       <div className="max-w-7xl mx-auto grid gap-12 px-6 lg:px-12">
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
-            className={`relative flex flex-col md:flex-row items-center bg-gradient-to-r from-[#000613] via-[#1e293b] to-[#2A6A8D] shadow-2xl rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-xl ${
+            className={`relative flex flex-col md:flex-row items-center bg-gradient-to-r from-[#000613] via-[#1e293b] to-[#2A6A8D] shadow-2xl rounded-lg overflow-hidden ${
               index % 2 === 0 ? "md:flex-row-reverse" : ""
             }`}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.2 }} // Repeats animation every time it appears in view
+            whileHover={{
+              rotateX: 5,
+              rotateY: 5,
+              scale: 1.02,
+            }}
           >
-            {/* Project Image */}
-            <a href={project.link} target="_blank" rel="noopener noreferrer" className="md:w-1/2">
+            {/* Project Image with Bounce Effect */}
+            <motion.a
+              href={project.link}
+              target="_blank"
+              rel=""
+              className="md:w-1/2"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                className="w-full h-full object-cover"
               />
-            </a>
+            </motion.a>
 
             {/* Project Details */}
             <div className="md:w-1/2 p-8 text-center md:text-left">
-              <h2 className="text-white text-3xl font-bold mb-3">{project.title}</h2>
-              <p className="text-gray-400 text-lg leading-relaxed">{project.description}</p>
+              <motion.h2
+                className="text-white md:text-3xl text-xl font-bold mb-3"
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 0.1, ease: "easeOut" }}
+              >
+                {project.title}
+              </motion.h2>
+              <p className="text-gray-400 md:text-lg leading-relaxed">
+                {project.description}
+              </p>
               <a
                 href={project.link}
                 target="_blank"
@@ -75,7 +109,7 @@ const Projects = () => {
                 View Project →
               </a>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
