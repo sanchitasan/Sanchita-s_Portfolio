@@ -58,7 +58,7 @@ const About = () => {
           {hoveredBox === 'problemSolving' && (
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 flex items-center justify-center text-center p-4 rounded-lg">
               <p className="text-white">
-                My problem-solving skills are rooted in a logical and analytical approach. I enjoy breaking down complex problems into manageable parts and finding efficient solutions. Whether it's debugging code or optimizing processes, I thrive on challenges that require critical thinking and creativity.
+                My problem-solving skills are rooted in a logical and analytical approach. I enjoy breaking down complex problems into manageable parts and finding efficient solutions. Whether it&apos;s debugging code or optimizing processes, I thrive on challenges that require critical thinking and creativity.
               </p>
             </div>
           )}
