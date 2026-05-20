@@ -4,6 +4,18 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "AlignIQ",
+    description: "Developed, a full-stack Performance Management Platform enabling role-based Goal tracking, quarterly reviews, goal approvals, and audit workflows. Designed scalable REST APIs using FastAPI with secure JWT authentication, while building responsive dashboards for Admin, Manager, and Employee roles.",
+    image: "/AlignIQ.png",
+    link: "https://aligniq-nine.vercel.app/",
+  },
+  {
+    title: "Campus Sentinel",
+    description: "Engineered an AI-powered campus surveillance and analytics backend capable of tracking entity movements through WiFi logs, CCTV, card swipes, and face embeddings. Implemented predictive ML pipelines and AI-powered recommendations to enhance campus safety, crowd management, and operational insights." ,
+    image: "/Campus.png",
+    link: "https://aligniq-nine.vercel.app/",
+  },
+  {
     title: "Credit Card Fraud Detection",
     description: "Developed a Credit Card Fraud Detection Model in Python, achieving 94.15% accuracy on training data and 93.90% accuracy on test data. Addressed class imbalance through Undersampling.",
     image: "/Credit Card.png",
@@ -20,18 +32,6 @@ const projects = [
     description: "Integrated AI/ML capabilities into the Code Metrics Dashboard by developing and deploying machine learning models using Flask APIs, enabling predictions of coding performance and streak trends.",
     image: "/code.png",
     link: "https://code-metrics-o6us.vercel.app",
-  },
-  {
-    title: "Weather Forecast",
-    description: "A real-time weather forecasting app that fetches live weather data using OpenWeather API, providing temperature, humidity, and weather conditions.",
-    image: "/Weather.png",
-    link: "https://sanchita-nitr.github.io/Weather-Forecast/",
-  },
-  {
-    title: "Image Gallery",
-    description: "A dynamic and responsive image gallery with filtering options, built using HTML, CSS, and JavaScript.",
-    image: "/ImageGallery.png",
-    link: "https://sanchita-nitr.github.io/ImageGallery/",
   },
 ];
 
