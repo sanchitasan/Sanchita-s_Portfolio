@@ -14,16 +14,16 @@ const projects = [
     num: "01",
     accent: "#22d3ee",
   },
-  {
-    title: "Campus Sentinel",
-    tag: "AI/ML · Surveillance · Analytics",
-    description:
-        "An AI-powered campus surveillance and analytics backend capable of tracking entity movements through WiFi logs, CCTV, card swipes, and face embeddings. Implemented predictive ML pipelines and AI-powered recommendations to enhance campus safety and crowd management.",
-    image: "/Campus.png",
-    link: "https://aligniq-nine.vercel.app/",
-    num: "02",
-    accent: "#38bdf8",
-  },
+  // {
+  //   title: "Campus Sentinel",
+  //   tag: "AI/ML · Surveillance · Analytics",
+  //   description:
+  //       "An AI-powered campus surveillance and analytics backend capable of tracking entity movements through WiFi logs, CCTV, card swipes, and face embeddings. Implemented predictive ML pipelines and AI-powered recommendations to enhance campus safety and crowd management.",
+  //   image: "/Campus.png",
+  //   link: "https://aligniq-nine.vercel.app/",
+  //   num: "02",
+  //   accent: "#38bdf8",
+  // },
   {
     title: "Credit Card Fraud Detection",
     tag: "ML · Python · Streamlit",
