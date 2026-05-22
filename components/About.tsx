@@ -1,112 +1,374 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { LuBrainCircuit, LuCode2, LuGraduationCap, LuTrophy } from "react-icons/lu";
 
-const About = () => {
-  const [hoveredBox, setHoveredBox] = useState<string | null>(null);
+const highlights = [
+  {
+    title: "Education",
+    icon: LuGraduationCap,
+    tag: "NIT Rourkela · 2027",
+    description:
+        "Pursuing B.Tech in Electronics and Communication Engineering at National Institute of Technology Rourkela, graduating in 2027.",
+    accent: "#22d3ee",
+    number: "01",
+  },
+  {
+    title: "Full-Stack Engineering",
+    icon: LuCode2,
+    tag: "React · Next.js · Node · FastAPI",
+    description:
+        "Builds responsive, production-ready applications with React, Next.js, Node.js, FastAPI — from dashboards and authentication to scalable API systems.",
+    accent: "#38bdf8",
+    number: "02",
+  },
+  {
+    title: "AI / ML & Research",
+    icon: LuBrainCircuit,
+    tag: "IEEE INDISCON 2025 Accepted",
+    description:
+        "Develops ML models for fraud detection, healthcare intelligence, campus safety, and human activity recognition, including IEEE INDISCON 2025 accepted research.",
+    accent: "#7de8ff",
+    number: "03",
+  },
+  {
+    title: "Leadership",
+    icon: LuTrophy,
+    tag: "HackOdisha 5.0 · IIT Guwahati",
+    description:
+        "Lead Organizer for HackOdisha 5.0, WebWiz technical team member, and 1st runner-up at IIT Guwahati Ethos Hackathon.",
+    accent: "#bae6fd",
+    number: "04",
+  },
+];
 
-  const handleMouseEnter = (box: string) => {
-    setHoveredBox(box);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredBox(null);
-  };
-
-  return (
-    <div
-      id="about"
-      className="text-white p-10 pb-16"
-      style={{
-        background: "linear-gradient(to bottom, #000 10%, #1B3A5B 75%, #2A6A8D)",
-      }}
-    >
-      <h1 className="md:mb-20 mb-5 lg:text-7xl md:text-6xl text-3xl text-center font-serif font-extrabold text-cyan-200">
-        About Me
-      </h1>
-      <div className="flex flex-col md:flex-row gap-5 justify-center relative">
-        {/* Education Box */}
-        <div
-          className={`flex-1 p-4 bg-gradient-to-l from-black via-[#132b44] to-[#2A6A8D] rounded-lg shadow-lg transition-all duration-300 relative ${hoveredBox === 'education' ? 'absolute left-0 right-0 z-10' : ''}`}
-          onMouseEnter={() => handleMouseEnter('education')}
-          onMouseLeave={handleMouseLeave}
-        >
-          <span className="text-5xl">📚</span>
-          <h3 className="text-lg font-bold mt-2">Education</h3>
-          <p className=" md:text-sm text-xs mt-1">
-            Pursuing a B.Tech in Electronics and Communication Engineering, with an emphasis on technologies like React, Next.js, and Tailwind CSS.
-          </p>
-          {hoveredBox === 'education' && (
-            <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 flex items-center justify-center p-1 text-center rounded-lg">
-            <p className="text-white md:text-sm text-xs">
-                Skilled in React, Next.js, Tailwind CSS, and backend technologies like Node.js and MySQL. Enthusiastic about AI, ML, and circuit design, with hands-on experience in projects. A dedicated learner, and tech coordinator, always striving for professional growth and impactful contributions.
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* Problem-Solving Box */}
-        <div
-          className={`flex-1 p-4 rounded-lg shadow-lg max-w-[550px] bg-gradient-to-r from-black via-[#132b44] to-[#2A6A8D] transition-all duration-300 relative ${hoveredBox === 'problemSolving' ? 'absolute left-0 right-0 z-10' : ''}`}
-          onMouseEnter={() => handleMouseEnter('problemSolving')}
-          onMouseLeave={handleMouseLeave}
-        >
-          <span className="text-5xl">🧠</span>
-          <h3 className="text-lg font-bold mt-2">Problem-Solving</h3>
-          <p className="md:text-sm text-xs mt-1">
-            Approaching challenges with a structured and analytical mindset.
-          </p>
-          {hoveredBox === 'problemSolving' && (
-            <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 flex items-center justify-center text-center p-1 rounded-lg">
-            <p className="text-white md:text-sm text-xs">
-                Strong problem-solving skills with a logical and analytical approach to tackling challenges. Experienced in optimizing code, and developing efficient solutions in web development. Enjoys competitive programming and algorithmic problem-solving to enhance technical expertise.
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-      <div className="flex flex-col md:flex-row gap-5 mt-5 justify-center relative">
-        {/* Experience Box */}
-        <div
-          className={`flex-1 p-4 rounded-lg shadow-lg bg-gradient-to-r from-black via-[#132b44] to-[#2A6A8D] transition-all duration-300 relative ${hoveredBox === 'experience' ? 'absolute left-0 right-0 z-10' : ''}`}
-          onMouseEnter={() => handleMouseEnter('experience')}
-          onMouseLeave={handleMouseLeave}
-        >
-          <span className="text-5xl">💼</span>
-          <h3 className="text-lg font-bold mt-2">Experience</h3>
-          <p className="md:text-sm text-xs mt-1">
-            Experienced in building projects, leading tech teams, implementing features, and achieving recognition in hackathons.
-          </p>
-          {hoveredBox === 'experience' && (
-            <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 flex items-center justify-center text-center p-1 rounded-lg">
-              <p className="text-white md:text-sm text-xs">
-                Developed and optimized web applications implementing authentication and dashboard features with Node.js, Express, and MySQL. Led the tech team for HackOdisha 4.0 and contributed as a tech coordinator for Cosmo.
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* Technical Skills Box */}
-        <div
-          className={`flex-1 p-4 rounded-lg shadow-lg bg-gradient-to-l from-black via-[#132b44] to-[#2A6A8D] transition-all duration-300 relative ${hoveredBox === 'technicalSkills' ? 'absolute left-0 right-0 z-10' : ''}`}
-          onMouseEnter={() => handleMouseEnter('technicalSkills')}
-          onMouseLeave={handleMouseLeave}
-        >
-          <span className="text-5xl">🛠️</span>
-          <h3 className="text-lg font-bold mt-2">Technical Skills</h3>
-          <p className="md:text-sm text-xs mt-1">
-            Proficient in web development, backend, problem-solving, embedded systems, AI, and version control, with experience in various development tools.
-          </p>
-          {hoveredBox === 'technicalSkills' && (
-            <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 flex items-center justify-center text-center p-1 rounded-lg">
-            <p className="text-white md:text-sm text-xs">
-                Skilled in web development, backend technologies, problem-solving, and algorithms, with experience in embedded systems, circuit design, AI, and machine learning fundamentals. Proficient in version control using Git and familiar with tools like Cloudinary, Multisim, and Postman.
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.13 } },
 };
 
-export default About;
+const fadeUp = {
+  hidden: { opacity: 0, y: 44 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 56, scale: 0.97 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.72,
+      delay: i * 0.11,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
+
+function HighlightCard({ item, index }) {
+  const Icon = item.icon;
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: false, margin: "-60px" });
+
+  return (
+      <motion.div
+          ref={ref}
+          custom={index}
+          variants={cardVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="about-card"
+          style={{ "--card-accent": item.accent }}
+      >
+        {/* Big background number */}
+        <span className="card-bg-num">{item.number}</span>
+
+        {/* Top row */}
+        <div className="card-top">
+          <div className="card-icon-wrap">
+            <Icon className="card-icon" aria-hidden="true" />
+          </div>
+          <span className="card-tag">{item.tag}</span>
+        </div>
+
+        {/* Title */}
+        <h3 className="card-title">{item.title}</h3>
+
+        {/* Divider */}
+        <div className="card-divider" />
+
+        {/* Description */}
+        <p className="card-desc">{item.description}</p>
+
+        {/* Bottom glow line */}
+        <div className="card-glow-line" />
+      </motion.div>
+  );
+}
+
+export default function About() {
+  const headRef = useRef(null);
+  const headInView = useInView(headRef, { once: false, margin: "-60px" });
+
+  return (
+      <>
+        <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+        .about-root {
+          position: relative;
+          overflow: hidden;
+          padding: 7rem 2rem 8rem;
+          background: linear-gradient(175deg,
+            #0a1320 0%,
+            #091828 18%,
+            #0d2340 38%,
+            #112d50 55%,
+            #1a4a6e 72%,
+            #0f2030 88%,
+            #07111d 100%
+          );
+          font-family: 'DM Sans', sans-serif;
+        }
+
+        /* ── Atmospheric blobs (matching Hero palette) ── */
+        .about-blobs { pointer-events: none; position: absolute; inset: 0; overflow: hidden; }
+        .ab { position: absolute; border-radius: 50%; filter: blur(80px); }
+        .ab-1 { width: 500px; height: 500px; top: -60px; left: 50%; transform: translateX(-50%);
+          background: radial-gradient(circle, rgba(34,211,238,0.1) 0%, transparent 70%);
+          animation: ab-drift1 11s ease-in-out infinite; }
+        .ab-2 { width: 340px; height: 340px; top: 40%; left: -60px;
+          background: radial-gradient(circle, rgba(56,189,248,0.09) 0%, transparent 70%);
+          animation: ab-drift2 14s ease-in-out infinite; }
+        .ab-3 { width: 420px; height: 420px; bottom: 5%; right: -80px;
+          background: radial-gradient(circle, rgba(99,179,237,0.1) 0%, transparent 70%);
+          animation: ab-drift3 9s ease-in-out infinite; }
+        @keyframes ab-drift1 { 0%,100%{transform:translateX(-50%) scale(1)} 50%{transform:translateX(-48%) scale(1.07)} }
+        @keyframes ab-drift2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-22px)} }
+        @keyframes ab-drift3 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(18px) scale(1.04)} }
+
+        /* Grain */
+        .about-grain {
+          position: absolute; inset: 0; opacity: 0.028; pointer-events: none;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          background-size: 180px;
+        }
+
+        /* ── Section header ── */
+        .about-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
+
+        .about-header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .about-eyebrow {
+          display: inline-flex; align-items: center; gap: 8px;
+          font-size: 10.5px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
+          color: rgba(125,232,255,0.7);
+          padding: 5px 16px; border-radius: 100px;
+          border: 1px solid rgba(125,232,255,0.15);
+          background: rgba(34,211,238,0.05);
+          backdrop-filter: blur(8px);
+          margin-bottom: 1.4rem;
+        }
+        .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #22d3ee; flex-shrink: 0;
+          animation: dot-pulse 2s ease-in-out infinite; }
+        @keyframes dot-pulse { 0%,100%{box-shadow:0 0 0 0 rgba(34,211,238,0.6)} 50%{box-shadow:0 0 0 5px rgba(34,211,238,0)} }
+
+        .about-heading {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(3rem, 7vw, 5.8rem);
+          font-weight: 800;
+          line-height: 0.92;
+          color: #fff;
+          letter-spacing: -0.02em;
+          margin: 0 0 0.15em;
+        }
+        .about-heading-accent {
+          display: block;
+          background: linear-gradient(100deg, #e0f7ff 0%, #7de8ff 40%, #38bdf8 70%, #bae6fd 100%);
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .about-hr {
+          width: 56px; height: 2px; margin: 1.6rem 0 1.8rem;
+          background: linear-gradient(90deg, #22d3ee, rgba(56,189,248,0.3), transparent);
+          border-radius: 2px;
+        }
+
+        .about-bio {
+          max-width: 1000px;
+          font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+          line-height: 1.85;
+          color: rgba(186,230,253,0.62);
+          font-weight: 300;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 4rem;
+        }
+
+        /* ── Cards grid ── */
+        .cards-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+        @media (max-width: 720px) { .cards-grid { grid-template-columns: 1fr; } }
+
+        .about-card {
+          position: relative;
+          padding: 2rem 2rem 2.2rem;
+          border-radius: 20px;
+          border: 1px solid rgba(125,235,255,0.1);
+          background: rgba(255,255,255,0.026);
+          backdrop-filter: blur(14px);
+          overflow: hidden;
+          cursor: default;
+          transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+        }
+        .about-card:hover {
+          border-color: rgba(125,235,255,0.28);
+          background: rgba(34,211,238,0.045);
+          transform: translateY(-6px);
+          box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 40px rgba(34,211,238,0.07);
+        }
+
+        /* Big ghost number */
+        .card-bg-num {
+          position: absolute; top: -14px; right: 16px;
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 7rem; font-weight: 800;
+          color: rgba(125,235,255,0.045);
+          line-height: 1; pointer-events: none; user-select: none;
+          transition: color 0.35s ease;
+        }
+        .about-card:hover .card-bg-num { color: rgba(125,235,255,0.08); }
+
+        /* Top row */
+        .card-top {
+          display: flex; align-items: center; justify-content: space-between;
+          margin-bottom: 1.2rem;
+        }
+        .card-icon-wrap {
+          display: flex; align-items: center; justify-content: center;
+          width: 46px; height: 46px; border-radius: 14px;
+          background: rgba(34,211,238,0.1);
+          border: 1px solid rgba(125,235,255,0.18);
+          color: var(--card-accent, #22d3ee);
+          transition: background 0.3s ease, box-shadow 0.3s ease;
+          flex-shrink: 0;
+        }
+        .about-card:hover .card-icon-wrap {
+          background: rgba(34,211,238,0.16);
+          box-shadow: 0 0 20px rgba(34,211,238,0.2);
+        }
+        .card-icon { width: 22px; height: 22px; }
+
+        .card-tag {
+          font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+          color: var(--card-accent, #22d3ee);
+          opacity: 0.7;
+          text-align: right;
+          max-width: 160px; line-height: 1.4;
+        }
+
+        /* Title */
+        .card-title {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+          font-weight: 700;
+          color: #fff;
+          line-height: 1.1;
+          margin: 0;
+          letter-spacing: -0.01em;
+        }
+
+        /* Divider */
+        .card-divider {
+          width: 36px; height: 1.5px; margin: 1rem 0;
+          background: linear-gradient(90deg, var(--card-accent, #22d3ee), transparent);
+          border-radius: 2px;
+          transition: width 0.4s cubic-bezier(0.22,1,0.36,1);
+        }
+        .about-card:hover .card-divider { width: 60px; }
+
+        /* Description */
+        .card-desc {
+          font-size: clamp(0.84rem, 1.4vw, 0.96rem);
+          line-height: 1.78;
+          color: rgba(186,230,253,0.58);
+          font-weight: 300;
+          margin: 0;
+          position: relative; z-index: 1;
+        }
+
+        /* Bottom glow accent line */
+        .card-glow-line {
+          position: absolute; left: 0; bottom: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--card-accent, #22d3ee), transparent);
+          opacity: 0;
+          transition: opacity 0.35s ease;
+        }
+        .about-card:hover .card-glow-line { opacity: 0.6; }
+
+        /* ── Decorative side line ── */
+        .about-side-line {
+          position: absolute; left: 0; top: 15%; bottom: 15%;
+          width: 1.5px;
+          background: linear-gradient(to bottom, transparent, rgba(34,211,238,0.25) 30%, rgba(56,189,248,0.2) 70%, transparent);
+          border-radius: 2px;
+        }
+      `}</style>
+
+        <section className="about-root" id="about">
+          {/* Atmosphere */}
+          <div className="about-blobs">
+            <div className="ab ab-1" />
+            <div className="ab ab-2" />
+            <div className="ab ab-3" />
+          </div>
+          <div className="about-grain" />
+          <div className="about-side-line" />
+
+          <div className="about-inner" ref={headRef}>
+            {/* Header block */}
+            <motion.div
+                className="about-header"
+                variants={containerVariants}
+                initial="hidden"
+                animate={headInView ? "visible" : "hidden"}
+            >
+
+              <motion.h2 className="about-heading" variants={fadeUp}>
+                About Me
+              </motion.h2>
+
+              <motion.div variants={fadeUp}>
+                <div className="about-hr" />
+              </motion.div>
+
+              <motion.p className="about-bio" variants={fadeUp}>
+                I bring together web engineering, data analytics, and applied machine learning to create efficient, research-backed technology solutions. My work spans high-performance interfaces, real-time dashboards, intelligent recommendation systems, healthcare tools, and ML models designed for practical deployment.
+              </motion.p>
+            </motion.div>
+
+            {/* Cards */}
+            <div className="cards-grid">
+              {highlights.map((item, i) => (
+                  <HighlightCard key={item.title} item={item} index={i} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </>
+  );
+}
