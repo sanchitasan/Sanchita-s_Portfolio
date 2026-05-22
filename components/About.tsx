@@ -1,9 +1,19 @@
 "use client";
 import React, { useRef } from "react";
+import type { IconType } from "react-icons";
 import { motion, useInView } from "framer-motion";
 import { LuBrainCircuit, LuCode2, LuGraduationCap, LuTrophy } from "react-icons/lu";
 
-const highlights = [
+type HighlightItem = {
+  title: string;
+  icon: IconType;
+  tag: string;
+  description: string;
+  accent: string;
+  number: string;
+};
+
+const highlights: HighlightItem[] = [
   {
     title: "Education",
     icon: LuGraduationCap,
@@ -58,7 +68,7 @@ const fadeUp = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 56, scale: 0.97 },
-  visible: (i) => ({
+  visible: (i: number) => ({
     opacity: 1,
     y: 0,
     scale: 1,
@@ -70,9 +80,9 @@ const cardVariants = {
   }),
 };
 
-function HighlightCard({ item, index }) {
+function HighlightCard({ item, index }: { item: HighlightItem; index: number }) {
   const Icon = item.icon;
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: false, margin: "-60px" });
 
   return (
@@ -83,7 +93,7 @@ function HighlightCard({ item, index }) {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="about-card"
-          style={{ "--card-accent": item.accent }}
+          style={{ ["--card-accent" as any]: item.accent } as React.CSSProperties}
       >
         {/* Big background number */}
         <span className="card-bg-num">{item.number}</span>

@@ -52,8 +52,10 @@ const fadeUp = {
 };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.11 } } };
 
-function ProjectRow({ project, index }) {
-  const ref = useRef(null);
+type Project = (typeof projects)[number];
+
+function ProjectRow({ project, index }: { project: Project; index: number }) {
+  const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: false, margin: "-80px" });
   const isEven = index % 2 === 0;
 
@@ -61,7 +63,7 @@ function ProjectRow({ project, index }) {
       <motion.div
           ref={ref}
           className="proj-row"
-          style={{ "--proj-accent": project.accent }}
+          style={{ "--proj-accent": project.accent } as React.CSSProperties}
           initial={{ opacity: 0, y: 60 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
           transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}

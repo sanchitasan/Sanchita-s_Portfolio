@@ -87,13 +87,13 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] } },
 };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.11 } } };
-const cardIn = (i) => ({
+const cardIn = (i: number) => ({
   hidden: { opacity: 0, y: 52, scale: 0.97 },
   visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] } },
 });
 
 /* ─────────── SUB-COMPONENTS ─────────── */
-function SectionEyebrow({ label }) {
+function SectionEyebrow({ label }: { label: string }) {
   return (
       <div className="ph-eyebrow">
         <span className="ph-eyebrow-dot" />
@@ -102,7 +102,7 @@ function SectionEyebrow({ label }) {
   );
 }
 
-function SectionHeading({ line1, line2 }) {
+function SectionHeading({ line1, line2 }: { line1: React.ReactNode; line2: React.ReactNode }) {
   return (
       <h2 className="ph-heading">
         {line1}
@@ -111,8 +111,13 @@ function SectionHeading({ line1, line2 }) {
   );
 }
 
-function TimelineCard({ exp, index }) {
-  const ref = useRef(null);
+type Experience = (typeof experiences)[number];
+type SkillItem = (typeof skills)[keyof typeof skills][number];
+type Certification = (typeof certifications)[number];
+type Achievement = (typeof achievements)[number];
+
+function TimelineCard({ exp, index }: { exp: Experience; index: number }) {
+  const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: false, margin: "-60px" });
   const isLeft = index % 2 === 0;
 
@@ -149,7 +154,7 @@ function TimelineCard({ exp, index }) {
   );
 }
 
-function SkillPill({ skill }) {
+function SkillPill({ skill }: { skill: SkillItem }) {
   const Icon = skill.icon;
   return (
       <div className="skill-pill">
@@ -159,8 +164,8 @@ function SkillPill({ skill }) {
   );
 }
 
-function CertCard({ cert, index }) {
-  const ref = useRef(null);
+function CertCard({ cert, index }: { cert: Certification; index: number }) {
+  const ref = useRef<HTMLAnchorElement | null>(null);
   const inView = useInView(ref, { once: false, margin: "-60px" });
   return (
       <motion.a
@@ -169,7 +174,7 @@ function CertCard({ cert, index }) {
           target="_blank"
           rel="noopener noreferrer"
           className="cert-card"
-          style={{ "--grad-from": cert.gradFrom, "--grad-to": cert.gradTo }}
+          style={{ "--grad-from": cert.gradFrom, "--grad-to": cert.gradTo } as React.CSSProperties}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={cardIn(index)}
@@ -202,9 +207,9 @@ function CertCard({ cert, index }) {
   );
 }
 
-function AchievCard({ item, index }) {
+function AchievCard({ item, index }: { item: Achievement; index: number }) {
   const Icon = item.icon;
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: false, margin: "-60px" });
   return (
       <motion.div
@@ -226,7 +231,7 @@ function AchievCard({ item, index }) {
 
 /* ─────────── MAIN COMPONENT ─────────── */
 export default function ProfileHighlights() {
-  const expRef = useRef(null);
+  const expRef = useRef<HTMLDivElement | null>(null);
   const expInView = useInView(expRef, { once: false, margin: "-80px" });
   const certRef = useRef(null);
   const certInView = useInView(certRef, { once: false, margin: "-80px" });
